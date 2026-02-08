@@ -101,7 +101,7 @@ function NameInputPage() {
                             Valentine Proposal
                         </h1>
                         <p className="text-lg text-gray-700 font-poppins max-w-sm mx-auto">
-                            Create a magical moment she'll never forget.
+                            Create a sweet little memory that lasts forever.
                         </p>
                     </div>
 
