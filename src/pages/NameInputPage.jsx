@@ -7,6 +7,8 @@ import { useToast } from '@/components/ui/use-toast';
 import FloatingHearts from '@/components/FloatingHearts';
 import SparkleAnimation from '@/components/SparkleAnimation';
 import Footer from '@/components/Footer';
+import { copyToClipboard } from '@/lib/utils';
+
 
 function NameInputPage() {
     const [recipientName, setRecipientName] = useState('');
@@ -38,16 +40,16 @@ function NameInputPage() {
     };
 
     const handleCopy = async () => {
-        try {
-            await navigator.clipboard.writeText(generatedLink);
+        const success = await copyToClipboard(generatedLink);
+        if (success) {
             toast({
                 title: "Copied! 📋",
                 description: "Link copied to clipboard.",
             });
-        } catch (err) {
+        } else {
             toast({
                 title: "Error",
-                description: "Failed to copy link.",
+                description: "Failed to copy link. Please try selecting and copying manually.",
                 variant: "destructive"
             });
         }
