@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 346 84% 61%;
+        --primary-foreground: 355 100% 97%;
+        --secondary: 355 100% 97%;
+        --secondary-foreground: 346 84% 61%;
+        --muted: 355 100% 97%;
+        --muted-foreground: 346 40% 45%;
+        --accent: 355 100% 97%;
+        --accent-foreground: 346 84% 61%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 346 84% 61%;
+        --radius: 1rem;
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Poppins', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Playfair Display', serif;
+    }
+}
+
+@layer components {
+    .font-playfair {
+        font-family: 'Playfair Display', serif;
+    }
+
+    .font-poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+/* Animations */
+
+/* 1. Sparkle Twinkle */
+@keyframes sparkle-twinkle {
+
+    0%,
+    100% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+.sparkle-animate {
+    will-change: transform, opacity;
+}
+
+/* 2. Floating Hearts */
+@keyframes float-up {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    animation: float-up linear infinite;
+    will-change: transform;
+}
+
+/* 3. Confetti Fall */
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti-piece {
+    animation: confetti-fall ease-in forwards;
+}
+
+/* 4. Shake Animation (Screen) */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-5px, -5px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(5px, 5px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(-5px, 5px) rotate(-1deg);
+    }
+
+    40% {
+        transform: translate(5px, -5px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-5px, -5px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(5px, 5px) rotate(1deg);
+    }
+
+    70% {
+        transform: translate(-5px, 5px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(5px, -5px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(-5px, -5px) rotate(-1deg);
+    }
+}
+
+.shake-animation {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* 5. Teddy Emotions Animations */
+@keyframes float-idle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float-idle {
+    animation: float-idle 3s ease-in-out infinite;
+}
+
+@keyframes bounce-emotion {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-bounce-emotion {
+    animation: bounce-emotion 1s ease-in-out infinite;
+}
+
+@keyframes shake-gentle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+.animate-shake-gentle {
+    animation: shake-gentle 2s ease-in-out infinite;
+}
+
+@keyframes shake-hard {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-2px, 2px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(2px, -2px) rotate(5deg);
+    }
+}
+
+.animate-shake-hard {
+    animation: shake-hard 0.5s linear infinite;
+}
+
+@keyframes dramatic {
+    0% {
+        transform: scale(1) rotate(0deg);
+        filter: grayscale(0.5);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(2deg);
+        filter: grayscale(0.8);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: grayscale(0.5);
+    }
+}
+
+.animate-dramatic {
+    animation: dramatic 4s ease-in-out infinite;
+}
+
+@keyframes celebration {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+
+    75% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+.animate-celebration {
+    animation: celebration 1s ease-in-out infinite;
+}
+
+/* 6. Button Glow Pulse */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(244, 63, 94, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.animate-glow-pulse {
+    animation: glow-pulse 2s infinite;
+}
+
+/* 7. Screen Glow */
+@keyframes screen-glow {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.1);
+    }
+}
+
+.animate-screen-glow {
+    animation: screen-glow 3s infinite;
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+    .container-safe {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
